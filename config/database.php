@@ -211,9 +211,9 @@ function insertSampleData($conn) {
     $candidatePass = password_hash('candidate123', PASSWORD_DEFAULT);
     
     $sql = "INSERT INTO users (username, email, password, role, first_name, last_name, phone) VALUES
-        ('admin', 'admin@recruitpro.com', '$adminPass', 'admin', 'Admin', 'User', '+1-555-0001'),
-        ('recruiter', 'recruiter@recruitpro.com', '$recruiterPass', 'recruiter', 'Jane', 'Recruiter', '+1-555-0002'),
-        ('candidate', 'candidate@recruitpro.com', '$candidatePass', 'candidate', 'John', 'Doe', '+1-555-0003')";
+        ('admin', 'admin@recruitwarx.com', '$adminPass', 'admin', 'Admin', 'User', '+1-555-0001'),
+        ('recruiter', 'recruiter@recruitwarx.com', '$recruiterPass', 'recruiter', 'Jane', 'Recruiter', '+1-555-0002'),
+        ('candidate', 'candidate@recruitwarx.com', '$candidatePass', 'candidate', 'John', 'Doe', '+1-555-0003')";
     $conn->exec($sql);
     
     // Insert sample jobs
