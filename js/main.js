@@ -1,6 +1,7 @@
 // Main JavaScript functionality
 class RecruitmentPortal {
     constructor() {
+        this.apiBase = window.location.origin;
         this.init();
     }
 
@@ -125,7 +126,9 @@ class RecruitmentPortal {
     }
 
     async loadJobs(filters = {}) {
-        const jobsContainer = document.querySelector('.job-listings');
+        const jobsContainer = document.getElementById('jobsContainer');
+        const jobCountElement = document.getElementById('jobCount');
+        
         if (!jobsContainer) return;
 
         try {
@@ -135,6 +138,9 @@ class RecruitmentPortal {
 
             if (result.success) {
                 this.renderJobs(result.jobs);
+                if (jobCountElement) {
+                    jobCountElement.textContent = result.jobs.length;
+                }
             } else {
                 this.showMessage(result.message, 'error');
             }
@@ -145,7 +151,7 @@ class RecruitmentPortal {
     }
 
     renderJobs(jobs) {
-        const jobsContainer = document.querySelector('.job-listings') || document.querySelector('.col-lg-9');
+        const jobsContainer = document.getElementById('jobsContainer');
         if (!jobsContainer) return;
 
         let jobsHTML = '';
@@ -201,20 +207,7 @@ class RecruitmentPortal {
             `;
         });
 
-        // Find the container after the search header
-        const searchCard = document.querySelector('.card');
-        if (searchCard && searchCard.nextElementSibling) {
-            const targetContainer = searchCard.nextElementSibling.querySelector('.col-lg-9');
-            if (targetContainer) {
-                // Keep the header and replace the job listings
-                const header = targetContainer.querySelector('.d-flex.justify-content-between');
-                targetContainer.innerHTML = '';
-                if (header) {
-                    targetContainer.appendChild(header);
-                }
-                targetContainer.insertAdjacentHTML('beforeend', jobsHTML);
-            }
-        }
+        jobsContainer.innerHTML = jobsHTML;
 
         // Re-bind event listeners for new apply buttons
         document.querySelectorAll('.apply-job-btn').forEach(button => {
@@ -367,7 +360,7 @@ class RecruitmentPortal {
     }
 
     handleJobSearch(e) {
-        const searchTerm = e.target.value.toLowerCase();
+        const searchTerm = e.target.value;
         const filters = { search: searchTerm };
         
         // Get other active filters

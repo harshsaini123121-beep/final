@@ -1,6 +1,6 @@
-# RecruitPro Portal - Professional Recruitment System
+# RecruitWarX Portal - Professional Recruitment System
 
-A comprehensive recruitment management system built with HTML, CSS, JavaScript, Bootstrap, PHP, and MySQL. Features multi-role authentication, job management, application tracking, and advanced analytics with a fully functional backend.
+A comprehensive recruitment management system built with HTML, CSS, JavaScript, Bootstrap, PHP, and MySQL. Features multi-role authentication, job management, application tracking, and advanced analytics.
 
 ## 🚀 Features
 
@@ -12,13 +12,13 @@ A comprehensive recruitment management system built with HTML, CSS, JavaScript, 
 
 2. **Run the installation script**
    ```
-   Navigate to: http://localhost/your-project-folder/setup/install.php
+   Navigate to: http://localhost/recruitwarx-portal/setup/install.php
    ```
    This will automatically create the database, tables, and insert sample data.
 
 3. **Start using the portal**
    ```
-   Navigate to: http://localhost/your-project-folder/
+   Navigate to: http://localhost/recruitwarx-portal/
    ```
 
 ### Windows (XAMPP)
@@ -27,8 +27,8 @@ A comprehensive recruitment management system built with HTML, CSS, JavaScript, 
 
 4. **Database Setup**
    - Open phpMyAdmin: http://localhost/phpmyadmin
-   - The database will be created automatically when you run the install script
-   - Or manually create database: `recruitment_portal` and run the SQL from `supabase/migrations/`
+   - Create database: `recruitwarx_portal`
+   - Run the installation script or import the SQL file
 
 5. **Configuration**
    - Ensure PHP extensions are enabled: PDO, PDO_MySQL
@@ -37,10 +37,13 @@ A comprehensive recruitment management system built with HTML, CSS, JavaScript, 
 
 1. **Access the Application**
    ```
-   http://localhost/your-project-folder/
+   http://localhost/recruitwarx-portal/
    ```
 
 2. **Demo Accounts**
+   - Admin: `admin` / `admin123`
+   - Recruiter: `recruiter` / `recruiter123`  
+   - Candidate: `candidate` / `candidate123`
 
 3. **First Steps**
    - Login with admin account
@@ -68,7 +71,7 @@ A comprehensive recruitment management system built with HTML, CSS, JavaScript, 
 ## 📁 Project Structure
 
 ```
-recruitment-portal/
+recruitwarx-portal/
 ├── api/
 │   └── jobs.php             # Jobs API endpoint
 ├── config/
@@ -96,7 +99,7 @@ recruitment-portal/
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'recruitment_portal');
+define('DB_NAME', 'recruitwarx_portal');
 ```
 
 ### Automatic Database Setup

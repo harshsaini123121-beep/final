@@ -3,7 +3,7 @@
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'recruitment_portal');
+define('DB_NAME', 'recruitwarx_portal');
 
 class Database {
     private $host = DB_HOST;
